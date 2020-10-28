@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block content %}
+
+    <div class="container">
+		<div class="panel-body">
+			<form action="{% url 'vote' %}" method="POST">
+			{% csrf_token %}
+		   
+		   <h1> List of Programming languages </h1>
+		    {% for lang in allLangs %}
+		    	<h3><input type="checkbox" name="txtVote" value={{lang.name}}> {{lang.name}} {{lang.vcount}}</h3>
+		    	<br/>
+		    {% endfor %}
+
+    		<p><input type="submit" class="btn btn-success" value="UpdateDB"/></p>
+			</form>
+		</div>
+	</div>
+
+
+{% endblock %}
